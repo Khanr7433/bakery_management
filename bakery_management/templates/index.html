@@ -5,12 +5,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Page Title</title>
+    <title>{% block title %}{% endblock title %}</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
     {% tailwind_css %}
   </head>
-  <body>
-    <h1 class="flex flex-col bg-green-600 px-10 py-10 text-2xl ">This is a Heading</h1>
+  <body class="font-mono">
+    {% component "navbar" %} {% endcomponent %}
+    <h1 class="flex flex-col bg-green-600 px-10 py-10 text-2xl text-white ">This is a Heading</h1>
     <p class="bg-blue-600 text-white px-10 py-20 font-semibold font-mono">This is a paragraph.</p>
     <div>
         {% component "card" %}{% endcomponent %}
@@ -19,5 +20,6 @@
         {% component "card" %}{% endcomponent %}
         {% component "card" %}{% endcomponent %} 
     </div>
+    {% block body %}{% endblock body %}
   </body>
 </html>
