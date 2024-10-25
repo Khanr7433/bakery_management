@@ -1,26 +1,9 @@
-{% load static tailwind_tags %} {% load component_tags %}
+{% extends "layout/index.html" %}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{% block title %}{% endblock title %}</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    {% tailwind_css %}
-  </head>
-  <body class="font-mono">
-    {% component "navbar" %} {% endcomponent %}
+{% block title %}Inventory{% endblock title %}
 
-    <div class="text-4xl"> 
-      Inventory
-    </div>
-
-    {% block body %}{% endblock body %}
-    
-    {% component "footer" year="{{year}}" %}
-    {% endcomponent %}
-  </body>
-</html>
+{% block body %}
+<div class="text-4xl"> 
+  Inventory
+</div>
+{% endblock %}

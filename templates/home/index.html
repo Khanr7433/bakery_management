@@ -1,19 +1,8 @@
-{% load static tailwind_tags %} {% load component_tags %}
+{% extends "layout/index.html" %}
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{% block title %}{% endblock title %}</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    {% tailwind_css %}
-  </head>
-  <body class="font-mono">
-    {% component "navbar" %} {% endcomponent %}
+{% block title %}Home{% endblock title %}
 
+{% block body %}
     <div class="container h-screen w-full">
       <p class="mt-20 ml-5 text-2xl">
         Welcome! <span class="text-blue-400">Rashid Khan</span>
@@ -23,8 +12,4 @@
         Panel<br />Here you can Manage Customers & Inventory
       </p>
     </div>
-
-    {% block body %}{% endblock body %} {% component "footer" year="{{year}}" %}
-    {% endcomponent %}
-  </body>
-</html>
+{% endblock %}

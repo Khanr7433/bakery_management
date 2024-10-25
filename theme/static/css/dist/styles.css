@@ -792,21 +792,12 @@ select {
   margin-right: auto;
 }
 
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
-.ml-3 {
-  margin-left: 0.75rem;
+.ml-5 {
+  margin-left: 1.25rem;
 }
 
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.ml-5 {
-  margin-left: 1.25rem;
 }
 
 .mt-20 {
@@ -825,16 +816,8 @@ select {
   height: 100vh;
 }
 
-.h-full {
-  height: 100%;
-}
-
 .w-full {
   width: 100%;
-}
-
-.w-screen {
-  width: 100vw;
 }
 
 .items-center {
@@ -858,24 +841,24 @@ select {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .leading-normal {
