@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from datetime import datetime
 
 
 def index(request):
-    return render(request, "index.html")
+    year = datetime.now().year
+    return render(request, "home/index.html", {"year": year})

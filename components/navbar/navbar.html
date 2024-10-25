@@ -1,14 +1,14 @@
 <div class="navbar bg-base-100">
-  <div class="navbar-start">
-    <a class="btn btn-ghost text-xl">Delux Backery</a>
+    <div class="navbar-start">
+      <a class="btn btn-ghost text-xl">Delux Backery</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href=" {% url "index" %}">Customer</a></li>
+        <li><a href="">Inventory</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <a class="btn">Log In</a>
+    </div>
   </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      <li><a>Customer</a></li>
-      <li><a>Inventory</a></li>
-    </ul>
-  </div>
-  <div class="navbar-end">
-    <a class="btn">Log In</a>
-  </div>
-</div>

@@ -1,0 +1,30 @@
+{% load static tailwind_tags %} {% load component_tags %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock title %}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    {% tailwind_css %}
+  </head>
+  <body class="font-mono">
+    {% component "navbar" %} {% endcomponent %}
+
+    <div class="container h-screen w-full">
+      <p class="mt-20 ml-5 text-2xl">
+        Welcome! <span class="text-blue-400">Rashid Khan</span>
+      </p>
+      <p class="mt-10 ml-5 text-xl">
+        Welcome! to <span class="text-blue-400">Delux Backery</span> Admin
+        Panel<br />Here you can Manage Customers & Inventory
+      </p>
+    </div>
+
+    {% block body %}{% endblock body %} {% component "footer" year="{{year}}" %}
+    {% endcomponent %}
+  </body>
+</html>
