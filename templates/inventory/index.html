@@ -3,7 +3,60 @@
 {% block title %}Inventory{% endblock title %}
 
 {% block body %}
-<div class="text-4xl"> 
-  Inventory
+<div class="h-screen">
+    <div class="text-2xl text-center py-4"> 
+      Inventory
+    </div>
+
+    <div class=" ">
+        <div class="max-w-5xl mx-3 relative overflow-x-auto items-center shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left rtl:text-right text-white dark:text-white">
+              <thead class="text-xs text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-white">
+                  <tr>
+                      <th scope="col" class="px-4 py-3">
+                      Sr. No.
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Product name
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Quantity
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Price
+                      </th>
+                      
+                      <th scope="col" class="px-6 py-3 pr-2 text-center">
+                          <span class="btn min-h-8 h-8 text-white">Add</span>
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for item in items %}
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 
+                  hover: text-white dark:hover:bg-gray-900">
+                      <td class="px-4 py-4">
+                        {{1}}
+                      </td>
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{item.name}}
+                      </th>
+                      <td class="px-6 py-4">
+                        {{item.quantity }} kg
+                      </td>
+                      <td class="px-6 py-4">
+                        {{item.price}}
+                      </td>
+                      
+                      <td class="px-6 py-4 text-center pr-2">
+                          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+        </div>
+      </div>
+    
 </div>
 {% endblock %}

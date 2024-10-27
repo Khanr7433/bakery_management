@@ -5,3 +5,58 @@ myvenv
 db.sqlite3  
 /static  
 .DS_Store  
+**/migrations/
+
+# Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Django migration files (if you choose to ignore them)
+**/migrations/*.py
+**/migrations/*.pyc
+# Or to ignore the entire migrations folder:
+# **/migrations/
+
+# Environment variables and secrets
+.env
+*.env
+
+# Database files
+db.sqlite3  # If you are using SQLite
+
+# Static files collected by Django
+/static/
+media/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+nosetests.xml
+*.cover
+
+# Pytest cache
+.pytest_cache/
+
+# Django local settings
+local_settings.py  # If you have a local settings file for development
+
+# Other files to ignore
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd

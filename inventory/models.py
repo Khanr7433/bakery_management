@@ -5,9 +5,8 @@ from django.db import models
 class item(models.Model):
     i_id=models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    description = models.TextField()
     quantity = models.IntegerField()
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=5, decimal_places=2,)
     date_added = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
