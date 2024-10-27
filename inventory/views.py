@@ -1,7 +1,9 @@
 from datetime import datetime
 from django.http import HttpResponse
-from django.shortcuts import render
-from .models import *
+from django.shortcuts import redirect, render
+from django.contrib import messages
+from .forms import ItemForm
+from .models import item
 
 
 def index(request):
@@ -17,8 +19,19 @@ def index(request):
 
 
 def add_item(request):
-
-    pass
+    if request.method=="POST":
+        form = ItemForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Item added successfully.")
+            return redirect("index")
+        else:
+            messages.error(request, "Error adding item.")
+            return redirect("index")
+    else:
+        return redirect("index")
+        
+    
 
 
 def edit_item(request):
