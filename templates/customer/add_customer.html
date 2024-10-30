@@ -1,0 +1,19 @@
+{% extends "layout/index.html" %} {% block title %}Add Customer{% endblock title
+%} {% block body %}
+<h2 class="text-center text-2xl font-semibold mb-4">Add New Customer</h2>
+
+<div class="h-screen w-screen flex items-center justify-center">
+  <div class="p-6">
+    <form method="POST" action="{% url 'add_customer' %}">
+      {% csrf_token %} {{ form.as_p }}
+      <button
+        type="submit"
+        class="btn bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Add Customer
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock body %}
