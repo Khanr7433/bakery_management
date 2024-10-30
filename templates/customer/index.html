@@ -4,6 +4,69 @@
 
 {% block body %}
 <div class="text-4xl"> 
-  Customer
+  <h1 class="text-center py-2">
+    Customer
+  </h1>
+</div>
+
+<div class=" ">
+  <div
+    class="max-w-5xl mx-3 relative overflow-x-auto items-center shadow-md sm:rounded-lg"
+  >
+    <table
+      class="w-full text-sm text-left rtl:text-right text-white dark:text-white"
+    >
+      <thead
+        class="text-xs text-white uppercase bg-gray-50 dark:bg-gray-700 dark:text-white"
+      >
+        <tr>
+          <th scope="col" class="px-4 py-3">Sr. No.</th>
+          <th scope="col" class="px-6 py-3">Customer name</th>
+          <th scope="col" class="px-6 py-3">Phone</th>
+          <th scope="col" class="px-6 py-3">Address</th>
+
+          <th scope="col" class="px-6 py-3 pr-2 text-center">
+            <a href="{% url "add_customer" %}" class="btn min-h-8 h-8 text-white">
+              Add
+            </a>
+          </th>
+          <th scope="col" class="px-6 py-3 pr-2 text-center">
+            
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cust in cust %}
+        <tr
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 hover: text-white dark:hover:bg-gray-900"
+        >
+          <td class="px-4 py-4">{{forloop.counter}}</td>
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          >
+            {{cust.name}}
+          </th>
+          <td class="px-6 py-4">{{cust.phone }}</td>
+          <td class="px-6 py-4">{{cust.address | slice:20}}...</td>
+
+          <td class="px-6 py-4 text-center pr-2">
+            <a
+              href="{% url "edit_customer"  cust.c_id %}"
+              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              >Edit</a
+            >
+          </td>
+          <td class="px-6 py-4 text-center pr-2">
+            <a
+              href="{% url "delete_customer"  cust.c_id %}"
+              class="font-medium text-red-600 dark:text-red-500 hover:underline"
+              >Delete</a
+            >
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 {% endblock %}

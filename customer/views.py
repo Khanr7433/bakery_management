@@ -7,7 +7,14 @@ from customer.forms import CustomerForm
 
 def index(request):
     year = datetime.now().year
-    return render(request, "customer/index.html", {"year": year})
+
+    # listing Customers
+    cust = customer.objects.all()
+
+    return render(request, "customer/index.html", {
+        "year": year,
+        "cust": cust}
+    )
 
 
 def add_customer(request):
