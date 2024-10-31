@@ -11,6 +11,8 @@ urlpatterns = [
 
     path('inventory/', include('inventory.urls')),
 
+    path('transaction/', include('transaction.urls')),
+
     path("__reload__/", include("django_browser_reload.urls")),
 
     path("", index, name="index"),

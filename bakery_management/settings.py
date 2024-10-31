@@ -29,11 +29,15 @@ INSTALLED_APPS = [
     'bakery_management',
     'customer',
     'inventory',
+    'transaction',
     'tailwind',
     'theme',
     'django_browser_reload',
     'django_components',
+    'crispy_forms',
+    "crispy_tailwind",
 ]
+
 
 TAILWIND_APP_NAME = 'theme'
 
@@ -160,3 +164,7 @@ STATICFILES_FINDERS = [
     # Django components
     "django_components.finders.ComponentsFileSystemFinder",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
