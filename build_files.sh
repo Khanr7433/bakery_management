@@ -11,8 +11,6 @@ python manage.py migrate
 python manage.py collectstatic --noinput
 
 # install and build tailwindcss
-npm install
-python manage.py tailwind install
 python manage.py tailwind build
 
 # create superuser using creat-superuser.py file
