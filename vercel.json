@@ -3,9 +3,9 @@
         "src": "bakery_management/wsgi.py",
         "use": "@vercel/python",
         "config": { 
-            "maxLambdaSize": "15mb" ,
+            "maxLambdaSize": "15mb",
             "buildCommand": "bash build_files.sh"
-            }
+        }
     }],
     "routes": [
         {
