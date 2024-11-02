@@ -1,6 +1,6 @@
 {
     "builds": [{
-        "src": "bakery_management/wsgi.py",
+        "src": "./build_files.sh",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb" }
     }],
