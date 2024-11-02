@@ -14,7 +14,7 @@ python manage.py collectstatic --noinput
 python manage.py tailwind build
 
 # create superuser using creat-superuser.py file
-python create-superuser.py
+python manage.py create-superuser.py
 
 
 
