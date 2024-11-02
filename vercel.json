@@ -4,7 +4,7 @@
         "use": "@vercel/python",
         "config": { 
             "maxLambdaSize": "15mb",
-            "buildCommand": "bash build_files.sh"
+            "buildCommand": "build_files.bat"
         }
     }],
     "routes": [
