@@ -70,15 +70,11 @@ class TransactionItem(models.Model):
     def __str__(self):
         return f"{self.quantity} of {self.items.name} in transaction of {self.transaction.c_id.name} in Trans {self.transaction.t_id}"
 
-    def update_inventory(self):
-        self.items.quantity -= self.quantity
-        self.items.save()
-
     def save(self, *args, **kwargs):
         self.Price = self.items.price * self.quantity
         super().save(*args, **kwargs)
         self.transaction.update_total_amt()
         self.transaction.update_balance()
-        self.items.add_quantity(self.quantity)
+        # self.items.update_quantity(self.quantity)
+        # self.items.add_quantity(self.quantity)
         self.items.sub_quantity(self.quantity)
-        self.update_inventory()

@@ -103,11 +103,11 @@
                 {{item_Trans.i_id.name}}
               </th>
               {% if item_Trans.type == "IN" %}
-              <td class="px-6 py-4 text-green-700">+{{item_Trans.type}}</td>
-              <td class="px-6 py-4 text-green-700">{{item_Trans.quantity}}</td>
+              <td class="px-6 py-4 text-green-300">+{{item_Trans.type}}</td>
+              <td class="px-6 py-4 text-green-300">{{item_Trans.quantity}}</td>
               {% else %}
-              <td class="px-6 py-4 text-red-700">-{{item_Trans.type}}</td>
-              <td class="px-6 py-4 text-red-700">{{item_Trans.quantity}}</td>
+              <td class="px-6 py-4 text-red-500">-{{item_Trans.type}}</td>
+              <td class="px-6 py-4 text-red-500">{{item_Trans.quantity}}</td>
               {% endif %}
             </tr>
             {% endfor %}

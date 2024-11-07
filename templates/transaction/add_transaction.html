@@ -1,0 +1,19 @@
+{% extends "layout/index.html" %} {% load tailwind_filters %} {% block title
+%}Add Transaction{% endblock title %} {% block body %}
+<h2 class="text-center text-2xl font-semibold mb-4">Add New Transaction</h2>
+
+<div class="flex items-center justify-center">
+  <div class="p-6">
+    <form method="POST" action="">
+      {% csrf_token %} {{ form1 | crispy }} {{ form2 | crispy }}
+      <button
+        type="submit"
+        class="btn bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Add Item
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock body %}
