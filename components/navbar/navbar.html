@@ -1,4 +1,4 @@
-<div class="navbar bg-gray-900">
+<div class="navbar bg-base-200">
   <div class="navbar-start">
     <a href="/" class="btn btn-ghost text-xl">Delux Backery</a>
   </div>
@@ -9,7 +9,16 @@
       <li><a href="/transaction">Transaction</a></li>
     </ul>
   </div>
-  <div class="navbar-end">
-    <a class="btn">Log In</a>
+  <div class="navbar-end flex gap-2">
+    {% if user.is_authenticated %} {{ user.username }}
+    <form method="POST" action="{% url "logout" %}">
+      {% csrf_token %}
+      <button type="submit" class="btn">Log Out</button>
+    {% csrf_token %}
+    </form>
+    {% else %}
+    <a href="{% url "register" %}" class="btn">Register</a>
+    <a href="{% url "login" %}" class="btn">Log In</a>
+    {% endif %}
   </div>
 </div>

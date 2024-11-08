@@ -23,7 +23,7 @@ def index(request):
     })
 
 
-def add_transaction(request):
+def add_transaction(request, ):
     # Add Transaction
     if request.method == "POST":
         form1 = custTransactionForm(request.POST)

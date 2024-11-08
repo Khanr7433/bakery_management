@@ -1,0 +1,14 @@
+{% extends "layout/index.html" %} {% load tailwind_filters %} {% block title
+%}Login{% endblock title %} {% block body %}
+
+<div class="container h-screen w-full mx-auto flex items-center justify-center">
+  <div class="card shadow-lg p-10 bg-base-200">
+    <h2 class="card-title text-2xl text-center py-2">Login</h2>
+    <form method="POST" action="{% url "login" %}">
+      {% csrf_token %} {{ form | crispy }}
+      <button type="submit" class="btn my-2 items-center">Login</button>
+    </form>
+  </div>
+</div>
+
+{% endblock body %}
