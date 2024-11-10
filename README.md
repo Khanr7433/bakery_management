@@ -31,7 +31,7 @@ This project is a Bakery Management System built with Django. It allows you to m
 ```
 
 4. **Set up environment variables:**
-   Create a .env file in the root directory and add the following:
+   Create a `.env` file in the root directory and add the following:
 ```sh
    SECRET_KEY=your-secret-key
    DEBUG=True
