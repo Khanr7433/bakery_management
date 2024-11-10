@@ -15,6 +15,7 @@ class customer(models.Model):
 
     class Meta:
         db_table = 'customer'
+        ordering = ['c_id']
 
     def __str__(self):
         return self.name
@@ -60,9 +61,9 @@ class TransactionItem(models.Model):
         cust_Transaction, on_delete=models.CASCADE, verbose_name="Transaction")
     items = models.ForeignKey(
         item, on_delete=models.CASCADE, verbose_name="Items")
-    quantity = models.PositiveIntegerField()
     Price = models.DecimalField(
         "Price", max_digits=10, decimal_places=2, default=0)
+    quantity = models.PositiveIntegerField()
 
     class Meta:
         db_table = 'transaction_item'

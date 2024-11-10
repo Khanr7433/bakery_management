@@ -35,16 +35,35 @@
         <tr
           class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 hover: text-white dark:hover:bg-gray-900"
         >
-          <td class="px-4 py-4">{{forloop.counter}}</td>
-          <th
+          <td class="px-4 py-4">
+            <a href="{% url 'view_customer' cust.c_id %}" class="cursor-pointer">
+              {{ forloop.counter }}
+            </a>
+          </td>
+          <td
             scope="row"
             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
           >
-            {{cust.name}}
-          </th>
-          <td class="px-6 py-4">{{cust.phone }}</td>
-          <td class="px-6 py-4">{{cust.address | slice:20}}...</td>
-
+            <a href="{% url 'view_customer' cust.c_id %}" class="cursor-pointer">
+              {{ cust.name }}
+            </a>
+          </td>
+          <td class="px-6 py-4">
+            <a href="{% url 'view_customer' cust.c_id %}" class="cursor-pointer">
+              {{ cust.phone }}
+            </a>
+          </td>
+          <td class="px-6 py-4">
+            {% if cust.address|length > 20 %}
+              <a href="{% url 'view_customer' cust.c_id %}" class="cursor-pointer">
+                {{ cust.address|truncatechars:20 }}
+              </a>
+            {% else %}
+            <a href="{% url 'view_customer' cust.c_id %}" class="cursor-pointer">
+              {{ cust.address }}
+            </a>
+            {% endif %}
+          </td>
           <td class="px-6 py-4 text-center pr-2">
             <a
               href="{% url "edit_customer"  cust.c_id %}"
@@ -52,12 +71,12 @@
               >Edit</a
             >
           </td>
+
           <td class="px-6 py-4 text-center pr-2">
             <a
               href="{% url "delete_customer"  cust.c_id %}"
               class="font-medium text-red-600 dark:text-red-500 hover:underline"
-              >Delete</a
-            >
+              >Delete</a>
         </tr>
         {% endfor %}
       </tbody>

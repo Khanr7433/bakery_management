@@ -15,23 +15,12 @@ class item(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ['i_id']
+
     def __str__(self):
         return self.name
 
-    # updating Inventory IN or OUT using if else condition
-    # def update_quantity(self, quantity):
-    #     if self.quantity + quantity:
-    #         self.quantity = self.quantity + quantity
-    #         item_Transaction.objects.create(
-    #             i_id=self, type='IN', quantity=quantity)
-    #         item_Transaction.save(self)
-    #     elif self.quantity - quantity:
-    #         self.quantity = self.quantity - quantity
-    #         item_Transaction.objects.create(
-    #             i_id=self, type='OUT', quantity=quantity)
-    #         item_Transaction.save(self)
-
-    # updating Inventory Using Two diffrent functions
     def add_quantity(self, quantity):
         self.quantity = self.quantity + quantity
         item_Transaction.objects.create(

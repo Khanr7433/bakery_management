@@ -1,7 +1,8 @@
 from datetime import datetime
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
-from customer.models import customer
+from customer.models import customer, cust_Transaction
+
 from customer.forms import CustomerForm
 
 
@@ -69,3 +70,13 @@ def delete_customer(request, c_id):
         return render(request, "customer/delete_customer.html", {
                       "cust": cust,
                       })
+
+
+def view_customer(request, c_id):
+    cust = get_object_or_404(customer, c_id=c_id)
+    transactions = cust_Transaction.objects.filter(c_id=c_id)
+
+    return render(request, "customer/view_customer.html", {
+        "cust": cust,
+        "transactions": transactions,
+    })

@@ -23,12 +23,13 @@ def index(request):
     })
 
 
-def add_transaction(request, ):
+def add_transaction(request, c_id):
     # Add Transaction
     if request.method == "POST":
-        form1 = custTransactionForm(request.POST)
-        form2 = TransactionItemForm(request.POST)
+        form1 = custTransactionForm(request.POST, c_id=c_id)
+        form2 = TransactionItemForm(request.POST, form1.t_id)
         if form1.is_valid():
+
             form1.save()
             if form2.is_valid():
                 form2.save()
