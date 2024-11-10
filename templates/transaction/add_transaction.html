@@ -5,7 +5,8 @@
 <div class="flex items-center justify-center">
   <div class="p-6">
     <form method="POST" action="">
-      {% csrf_token %} {{ form1 | crispy }} {{ form2 | crispy }}
+      {% csrf_token %} {% comment %} {{ form1 | crispy }} {% endcomment %} {{
+      transItem_form | crispy }}
       <button
         type="submit"
         class="btn bg-blue-500 text-white px-4 py-2 rounded"

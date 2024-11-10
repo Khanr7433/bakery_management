@@ -1,9 +1,7 @@
-from django.shortcuts import redirect, render
-from customer.models import cust_Transaction, TransactionItem
-from inventory.models import item_Transaction
-from customer.forms import custTransactionForm, TransactionItemForm
-
-# Create your views here.
+from django.shortcuts import get_object_or_404, redirect, render
+from customer.models import customer
+from transaction.forms import TransactionItemForm, custTransactionForm
+from transaction.models import TransactionItem, cust_Transaction, item_Transaction
 
 
 def index(request):
@@ -24,20 +22,20 @@ def index(request):
 
 
 def add_transaction(request, c_id):
-    # Add Transaction
-    if request.method == "POST":
-        form1 = custTransactionForm(request.POST, c_id=c_id)
-        form2 = TransactionItemForm(request.POST, form1.t_id)
-        if form1.is_valid():
+    cust = get_object_or_404(customer, c_id=c_id)
 
-            form1.save()
-            if form2.is_valid():
-                form2.save()
-                return redirect("transaction:index")
+    # Create the cust_Transaction object
+    transaction = cust_Transaction.objects.create(c_id=cust)
+
+    if request.method == 'POST':
+        transItem_form = TransactionItemForm(
+            request.POST, transaction=transaction)
+        if transItem_form.is_valid():
+            transItem_form.save()
+            return redirect('index')
     else:
-        form1 = custTransactionForm()
-        form2 = TransactionItemForm()
-        return render(request, "transaction/add_transaction.html", {
-            "form1": form1,
-            "form2": form2,
-        })
+        transItem_form = TransactionItemForm(transaction=transaction)
+
+    return render(request, 'transaction/add_transaction.html', {
+        'transItem_form': transItem_form
+    })

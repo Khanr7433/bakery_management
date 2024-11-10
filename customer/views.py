@@ -1,9 +1,10 @@
 from datetime import datetime
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
-from customer.models import customer, cust_Transaction
+from customer.models import customer
 
 from customer.forms import CustomerForm
+from transaction.models import cust_Transaction
 
 
 def index(request):
